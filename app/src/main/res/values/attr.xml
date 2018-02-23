@@ -1,0 +1,7 @@
+<resources>
+
+    <declare-styleable name="CustomTabLayout">
+        <attr name="tabIndicatorWidth" format="dimension" />
+    </declare-styleable>
+
+</resources>
