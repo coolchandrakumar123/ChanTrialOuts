@@ -301,7 +301,7 @@ class CustomTabLayout @JvmOverloads constructor(context: Context, attrs: Attribu
      * @hide
      */
     @RestrictTo(LIBRARY_GROUP)
-    @IntDef(value = [(MODE_SCROLLABLE.toLong()), (MODE_FIXED.toLong())])
+    @IntDef(value = [(MODE_SCROLLABLE), (MODE_FIXED)])
     @Retention(RetentionPolicy.SOURCE)
     annotation class Mode
 
@@ -309,7 +309,7 @@ class CustomTabLayout @JvmOverloads constructor(context: Context, attrs: Attribu
      * @hide
      */
     @RestrictTo(LIBRARY_GROUP)
-    @IntDef(flag = true, value = [(GRAVITY_FILL.toLong()), (GRAVITY_CENTER.toLong())])
+    @IntDef(flag = true, value = [(GRAVITY_FILL), (GRAVITY_CENTER)])
     @Retention(RetentionPolicy.SOURCE)
     annotation class TabGravity
 
@@ -722,7 +722,7 @@ class CustomTabLayout @JvmOverloads constructor(context: Context, attrs: Attribu
         if (mViewPager != null) {
             // If we've already been setup with a ViewPager, remove us from it
             if (mPageChangeListener != null) {
-                mViewPager!!.removeOnPageChangeListener(mPageChangeListener)
+                mViewPager!!.removeOnPageChangeListener(mPageChangeListener!!)
             }
             if (mAdapterChangeListener != null) {
                 mViewPager!!.removeOnAdapterChangeListener(mAdapterChangeListener!!)
@@ -743,7 +743,7 @@ class CustomTabLayout @JvmOverloads constructor(context: Context, attrs: Attribu
                 mPageChangeListener = TabLayoutOnPageChangeListener(this)
             }
             mPageChangeListener!!.reset()
-            viewPager.addOnPageChangeListener(mPageChangeListener)
+            viewPager.addOnPageChangeListener(mPageChangeListener!!)
 
             // Now we'll add a tab selected listener to set ViewPager's current item
             mCurrentVpSelectedListener = ViewPagerOnTabSelectedListener(viewPager)
@@ -816,7 +816,7 @@ class CustomTabLayout @JvmOverloads constructor(context: Context, attrs: Attribu
     internal fun setPagerAdapter(adapter: PagerAdapter?, addObserver: Boolean) {
         if (mPagerAdapter != null && mPagerAdapterObserver != null) {
             // If we already have a PagerAdapter, unregister our observer
-            mPagerAdapter!!.unregisterDataSetObserver(mPagerAdapterObserver)
+            mPagerAdapter!!.unregisterDataSetObserver(mPagerAdapterObserver!!)
         }
 
         mPagerAdapter = adapter
@@ -826,7 +826,7 @@ class CustomTabLayout @JvmOverloads constructor(context: Context, attrs: Attribu
             if (mPagerAdapterObserver == null) {
                 mPagerAdapterObserver = PagerAdapterObserver()
             }
-            adapter.registerDataSetObserver(mPagerAdapterObserver)
+            adapter.registerDataSetObserver(mPagerAdapterObserver!!)
         }
 
         // Finally make sure we reflect the new adapter
