@@ -4,7 +4,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.text.SpannableString
@@ -26,18 +25,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        first.setOnClickListener( {
+        first.setOnClickListener {
             switchView()
-        })
+        }
 
         second.setOnClickListener {
             switchView()
         }
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-            openTicketInRadar(648638721, 4002034234228)
+            openTicketInRadar(648638721, 196608000014373120)
 
         }
     }

@@ -2079,7 +2079,7 @@ class CustomTabLayout @JvmOverloads constructor(context: Context, attrs: Attribu
          * @see .setTabMode
          * @see .getTabMode
          */
-        val MODE_SCROLLABLE = 0
+         const val MODE_SCROLLABLE = 0
 
         /**
          * Fixed tabs display all tabs concurrently and are best used with content that benefits from
@@ -2089,7 +2089,7 @@ class CustomTabLayout @JvmOverloads constructor(context: Context, attrs: Attribu
          * @see .setTabMode
          * @see .getTabMode
          */
-        val MODE_FIXED = 1
+        const val MODE_FIXED = 1
 
         /**
          * Gravity used to fill the [TabLayout] as much as possible. This option only takes effect
@@ -2098,7 +2098,7 @@ class CustomTabLayout @JvmOverloads constructor(context: Context, attrs: Attribu
          * @see .setTabGravity
          * @see .getTabGravity
          */
-        val GRAVITY_FILL = 0
+        const val GRAVITY_FILL = 0
 
         /**
          * Gravity used to lay out the tabs in the center of the [TabLayout].
@@ -2106,7 +2106,7 @@ class CustomTabLayout @JvmOverloads constructor(context: Context, attrs: Attribu
          * @see .setTabGravity
          * @see .getTabGravity
          */
-        val GRAVITY_CENTER = 1
+        const val GRAVITY_CENTER = 1
 
         private fun createColorStateList(defaultColor: Int, selectedColor: Int): ColorStateList {
             val states = arrayOfNulls<IntArray>(2)
