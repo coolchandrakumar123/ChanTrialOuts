@@ -4,22 +4,27 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.os.Looper
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.text.SpannableString
 import android.text.method.LinkMovementMethod
 import android.text.util.Linkify
+import android.util.Log
 import android.util.TypedValue
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
+import com.chan.chandummy.customview.CustomBottomSheetDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
 
 class MainActivity : AppCompatActivity() {
 
+    var parentThread: Thread? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -34,9 +39,51 @@ class MainActivity : AppCompatActivity() {
         }
 
         fab.setOnClickListener { view ->
-            openTicketInRadar(648638721, 196608000014373120)
+            //openTicketInRadar(648638721, 196608000014373120)
+            thirdName.text = "33333 This is extra statement to identify the ellipsize"
 
         }
+
+        button1.setOnClickListener {
+            firstName.text = "111111This is Contact Name, this is extra statement to identify the ellipsize"
+        }
+
+        button2.setOnClickListener {
+            //second.text = getString(R.string.dummy_text)
+            lastName.text = "2222222This is Account Name, this is extra statement to identify the ellipsize"
+        }
+    }
+
+    private fun showDialog() {
+        val dialog = CustomBottomSheetDialog()
+        dialog.isCancelable = false
+        dialog.show(supportFragmentManager)
+    }
+
+    private fun stopThread() {
+        parentThread?.suspend()
+    }
+
+    private fun startThreadWithChild() {
+        parentThread = Thread(Runnable {
+            Thread(Runnable {
+                while (true) {
+                    Thread.sleep(1000)
+                    Log.d("ChanLog", "Inside: 1");
+                }
+                /*Thread(Runnable {
+                    while (true) {
+                        Log.d("ChanLog", "Inside: 2");
+                    }
+                }).start()*/
+            }).start()
+            while (true) {
+                Thread.sleep(1000)
+                Log.d("ChanLog", "Parent Thread");
+            }
+        }
+        )
+        parentThread?.start()
     }
 
     private fun openTicketInRadar(orgId: Long, ticketId: Long) {

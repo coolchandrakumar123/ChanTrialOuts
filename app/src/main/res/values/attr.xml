@@ -4,4 +4,8 @@
         <attr name="tabIndicatorWidth" format="dimension" />
     </declare-styleable>
 
+    <declare-styleable name="CustomAutoTextView">
+        <attr name="autoWidthEnabled" format="boolean" />
+    </declare-styleable>
+
 </resources>
