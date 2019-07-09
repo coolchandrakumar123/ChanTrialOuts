@@ -40,7 +40,8 @@ class MainActivity : AppCompatActivity() {
 
         fab.setOnClickListener { view ->
             //openTicketInRadar(648638721, 196608000014373120)
-            thirdName.text = "33333 This is extra statement to identify the ellipsize"
+            //thirdName.text = "33333 This is extra statement to identify the ellipsize"
+            startActivity(Intent(this, RecyclerViewActivity::class.java))
 
         }
 
@@ -52,6 +53,8 @@ class MainActivity : AppCompatActivity() {
             //second.text = getString(R.string.dummy_text)
             lastName.text = "2222222This is Account Name, this is extra statement to identify the ellipsize"
         }
+        textImageView.setText("AB")
+        setValuesInitially()
     }
 
     private fun showDialog() {
@@ -106,6 +109,12 @@ class MainActivity : AppCompatActivity() {
             builder.setCancelable(true)
             builder.show()
         }
+    }
+
+    private fun setValuesInitially() {
+        firstName.text = "111111This is Contact Name, this is extra statement to identify the ellipsize"
+        lastName.text = "2222222This is Account Name, this is extra statement to identify the ellipsize"
+        thirdName.text = "33333 This is extra statement to identify the ellipsize"
     }
 
     private fun switchView() {

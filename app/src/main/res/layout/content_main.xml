@@ -86,6 +86,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:srcCompat="@android:drawable/ic_input_add" />
 
+            <com.chan.chandummy.customview.CircleTextImageView
+                android:id="@+id/textImageView"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toTopOf="@+id/roundedImageView"
+                app:layout_constraintStart_toEndOf="@+id/roundedImageView"
+                app:srcCompat="@android:drawable/ic_input_add" />
+
             <!--<com.chan.chandummy.customview.GradientImageView
                 android:id="@+id/gradientImageView"
                 android:layout_width="44dp"
@@ -127,7 +136,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:ellipsize="end"
-                android:text="11111"
                 app:autoWidthEnabled="true"
                 android:maxLines="1"
                 android:textColor="#ffffff"
@@ -138,7 +146,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:maxWidth="100dp"
-                android:text="22222"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textColor="#ffffff"
@@ -149,7 +156,6 @@
                 android:layout_height="match_parent"
                 android:ellipsize="end"
                 app:autoWidthEnabled="true"
-                android:text="3333333"
                 android:maxLines="1"
                 android:background="#ff00ff"
                 android:textColor="#ffffff" />
@@ -159,7 +165,6 @@
                 android:layout_height="match_parent"
                 android:ellipsize="end"
                 app:autoWidthEnabled="true"
-                android:text="444444444"
                 android:maxLines="1"
                 android:textColor="#ffffff"
                 android:background="#00ff00"/>

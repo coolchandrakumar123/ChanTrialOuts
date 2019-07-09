@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <com.chan.chandummy.customview.CustomAutoLayout
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:background="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:gravity="start"
+            android:layout_gravity="start">
+
+            <com.chan.chandummy.customview.CustomAutoTextView
+                android:id="@+id/firstName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ellipsize="end"
+                app:autoWidthEnabled="true"
+                android:maxLines="1"
+                android:text="111111This is Contact Name, this is extra statement to identify the ellipsize"
+                android:textColor="#ffffff"
+                android:background="#ff00ff"/>
+
+            <com.chan.chandummy.customview.CustomAutoTextView
+                android:id="@+id/lastName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:maxWidth="100dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="2222222This is Account Name, this is extra statement to identify the ellipsize"
+                android:textColor="#ffffff"
+                android:background="#00ff00"/>
+            <com.chan.chandummy.customview.CustomAutoTextView
+                android:id="@+id/thirdName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ellipsize="end"
+                app:autoWidthEnabled="true"
+                android:maxLines="1"
+                android:text="33333 This is extra statement to identify the ellipsize"
+                android:background="#ff00ff"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+    </com.chan.chandummy.customview.CustomAutoLayout>
+
+</android.support.constraint.ConstraintLayout>
