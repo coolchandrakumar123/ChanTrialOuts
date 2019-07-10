@@ -3,6 +3,7 @@ package com.chan.chandummy.customview
 import android.content.Context
 import android.support.design.R
 import android.util.AttributeSet
+import android.util.Log
 import android.view.ViewGroup
 import android.widget.TextView
 
@@ -51,20 +52,14 @@ class CustomAutoTextView : TextView {
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         init(context, attrs)
     }
-    var isAutoWidthEnabled = false
     private fun init(context: Context, attrs: AttributeSet?, defStyleAttr: Int = 0) {
-        val customStyle = context.obtainStyledAttributes(attrs, com.chan.chandummy.R.styleable.CustomAutoTextView, defStyleAttr, R.style.Widget_Design_TabLayout)
-        isAutoWidthEnabled = customStyle.getBoolean(com.chan.chandummy.R.styleable.CustomAutoTextView_autoWidthEnabled, false)
-        customStyle.recycle()
     }
 
     override fun setText(text: CharSequence?, type: BufferType?) {
-        if(isAutoWidthEnabled) {
-            val params = this.layoutParams
-            params?.let {
-                params.width = ViewGroup.LayoutParams.WRAP_CONTENT
-                this.layoutParams = params
-            }
+        val params = this.layoutParams
+        params?.let {
+            params.width = ViewGroup.LayoutParams.WRAP_CONTENT
+            this.layoutParams = params
         }
         super.setText(text, type)
     }

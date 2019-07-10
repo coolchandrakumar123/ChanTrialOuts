@@ -2,6 +2,7 @@ package com.chan.chandummy.customview
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.ViewGroup
 import android.widget.HorizontalScrollView
 
@@ -62,7 +63,7 @@ class CustomAutoLayout : HorizontalScrollView {
         }
     }
 
-    private fun measureAndAllocateWidth() {
+    fun measureAndAllocateWidth() {
         val directChild = getChildAt(0) as ViewGroup
         val count = directChild.childCount
         val widthArray = IntArray(count) {-1}
@@ -84,10 +85,12 @@ class CustomAutoLayout : HorizontalScrollView {
         }
 
         if(totalWidth <= width || allocatedChildCount >= count) {
+            Log.d("ChanLog", "totalWidth: $totalWidth, width: $width")
             return
         }
 
         val allocatedWidth = getAllocatedWidth(resultArray)
+        Log.d("ChanLog", "totalWidth: $totalWidth, width: $width, allocatedWidth: $allocatedWidth");
         if(allocatedWidth < width) {
             val avgWidth = (width - allocatedWidth) / unAllocatedChildCount
             setCalculatedWidth(directChild, getResultArray(widthArray, resultArray, avgWidth))
@@ -102,14 +105,18 @@ class CustomAutoLayout : HorizontalScrollView {
     }
 
     private fun setCalculatedWidth(directChild: ViewGroup, allocatedWidthArray: IntArray) {
+        val allocatedWidth = getAllocatedWidth(allocatedWidthArray)
+        Log.d("ChanLog", "Final AllocatedWidth: $allocatedWidth");
         val childCount = directChild.childCount
         for (i in 0 until childCount) {
             val calculatedWidth = allocatedWidthArray[i]
             val child = directChild.getChildAt(i)
             if(calculatedWidth > 0 && child is CustomAutoTextView) {
+                Log.d("ChanLog", "calculatedWidth-$i: $calculatedWidth");
                 val params = child.layoutParams
                 params.width = calculatedWidth
                 child.layoutParams = params
+                //child.requestLayout()
             }
         }
     }
