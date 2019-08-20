@@ -8,4 +8,8 @@
         <attr name="autoWidthEnabled" format="boolean" />
     </declare-styleable>
 
+    <attr name="button_bg" format="reference|color" />
+    <attr name="button_text" format="reference|color" />
+    <attr name="page_bg" format="reference|color" />
+
 </resources>

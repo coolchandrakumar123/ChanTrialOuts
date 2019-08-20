@@ -27,8 +27,9 @@ class MainActivity : AppCompatActivity() {
     var parentThread: Thread? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(resources.getIdentifier("AppTheme.MainPage", "style", packageName))
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+        //setSupportActionBar(toolbar)
 
         first.setOnClickListener {
             switchView()
