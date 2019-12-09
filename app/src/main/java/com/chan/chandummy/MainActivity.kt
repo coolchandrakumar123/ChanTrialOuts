@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
 
         button1.setOnClickListener {
             firstName.text = "111111This is Contact Name, this is extra statement to identify the ellipsize"
+            checkLambdaForFunctionPassing()
         }
 
         button2.setOnClickListener {
@@ -56,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         }
         textImageView.setText("AB")
         setValuesInitially()
+        progressBar.percentage = 65f
     }
 
     private fun showDialog() {
@@ -143,5 +145,74 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun checkLambdaForFunctionPassing() {
+
+        lambdaForNoParameters {
+            Log.d("ChanLog", "lambdaForNoParameters")
+        }
+
+        lambdaForParameters { value1, value2 ->
+            Log.d("ChanLog", "insidetempLambdaCheck: value1 = $value1, value2 = $value2")
+            "test: ${value1+value2}"
+        }
+
+        lambdaForCallback ({ callback ->
+            callback.onSuccess()
+            10
+        }, "Test")
+
+        "ChandraEmptyCheck".emptyCheck {
+            Log.d("ChanLog", "NonEmptyValue: $it");
+        }?.let {
+            Log.d("ChanLog", "afterNonEmptyValue: $it");
+        }
+
+        "Mohan".emptyCheckFunction {
+            
+        }?.run {
+
+        }
+    }
+
+    private fun String?.emptyCheck(ifTrue: (String) -> Unit): String? {
+        if(this != null && this.isNotEmpty()) {
+            ifTrue(this)
+        }
+        return this
+    }
+
+    private fun String?.emptyCheckFunction(ifTrue: String.() -> Unit): String? {
+        if(this != null && this.isNotEmpty()) {
+            ifTrue()
+        }
+        return this
+    }
+
+
+    private fun lambdaForNoParameters(test : () -> Unit) {
+        test()
+    }
+
+    private fun lambdaForParameters(test : (Int, Int) -> String) {
+        Log.d("ChanLog", "value: ${test(5,10)}")
+    }
+
+    private fun lambdaForCallback(callBack: (ClassCallBack) -> Int, checkPassingValue: String) {
+        callBack(object : ClassCallBack {
+            override fun onSuccess() {
+                Log.d("ChanLog", "checkPassingValue: $checkPassingValue");
+            }
+
+            override fun onFailure() {
+
+            }
+        })
+    }
+
+    private interface ClassCallBack {
+        fun onSuccess()
+        fun onFailure()
     }
 }

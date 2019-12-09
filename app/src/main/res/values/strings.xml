@@ -8,4 +8,6 @@
     <string name="menu_delete">Delete</string>
 
     <string name="dummy_text_hint">THIS IS THE HINT</string>
+
+    <string name="mask_view_label">MASK VIEW LABEL</string>
 </resources>

@@ -118,6 +118,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.chan.chandummy.customview.CustomAutoLayout
+        android:id="@+id/autoLayout"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:background="#000"
@@ -181,6 +182,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:setPercentage="30" />
+
+    <com.chan.chandummy.customview.CircularProgressView
+        android:id= "@+id/progressBar"
+        android:layout_width= "88dp"
+        android:layout_height= "88dp"
+        app:bgColor="@color/static_blue_5"
+        app:progressColor="@color/static_blue_50"
+        app:bgBarWidth="@dimen/dimen_6"
+        app:progressBarWidth="@dimen/dimen_8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/autoLayout"/>
+
+    <com.chan.chandummy.customview.CircularProgressView
+        android:id= "@+id/progressBar2"
+        android:layout_width= "60dp"
+        android:layout_height= "60dp"
+        app:bgColor="@color/static_green_5"
+        app:progressColor="@color/static_green_50"
+        app:bgBarWidth="@dimen/dimen_6"
+        app:progressBarWidth="@dimen/dimen_8"
+        app:layout_constraintStart_toStartOf="@+id/progressBar"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar"
+        app:layout_constraintTop_toTopOf="@+id/progressBar"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBar"/>
 
     <com.chan.chandummy.DashedLineView
         android:layout_width="0dp"
