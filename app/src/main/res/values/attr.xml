@@ -13,6 +13,7 @@
         <attr name="progressColor" format="reference|color" />
         <attr name="bgBarWidth" format="dimension" />
         <attr name="progressBarWidth" format="dimension" />
+        <attr name="hideShadow" format="boolean" />
     </declare-styleable>
 
     <attr name="button_bg" format="reference|color" />

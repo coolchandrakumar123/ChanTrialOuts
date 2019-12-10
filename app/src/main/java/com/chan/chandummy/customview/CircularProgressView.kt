@@ -37,17 +37,21 @@ class CircularProgressView : View {
     var progressColor = Color.BLUE
     var bgBarWidth = 10f.getPixel(context)
     var progressBarWidth = bgBarWidth + 4f.getPixel(context)
+    var hideShadow = false
 
     var difference = progressBarWidth
     private fun init(attrs: AttributeSet? = null) {
+        setLayerType(LAYER_TYPE_SOFTWARE, null)
         attrs?.let {
             val attrDetails = context.obtainStyledAttributes(attrs, R.styleable.CircularProgressView)
             bgColor = attrDetails.getColor(R.styleable.CircularProgressView_bgColor, bgColor)
             progressColor = attrDetails.getColor(R.styleable.CircularProgressView_progressColor, progressColor)
             bgBarWidth = attrDetails.getDimension(R.styleable.CircularProgressView_bgBarWidth, bgBarWidth)
             progressBarWidth = attrDetails.getDimension(R.styleable.CircularProgressView_progressBarWidth, progressBarWidth)
+            hideShadow = attrDetails.getBoolean(R.styleable.CircularProgressView_hideShadow, hideShadow)
             attrDetails.recycle()
         }
+        difference = Math.max(progressBarWidth, bgBarWidth)
         bgPaint.apply {
             isAntiAlias = true
             style = Paint.Style.STROKE
@@ -62,6 +66,9 @@ class CircularProgressView : View {
             strokeWidth = progressBarWidth
             strokeCap = Paint.Cap.ROUND
             color = progressColor
+            if(!hideShadow) {
+                setShadowLayer(progressBarWidth, 0f, progressBarWidth/3, progressColor)
+            }
         }
     }
 
