@@ -7,4 +7,7 @@
     <color name="static_blue_50">#80179ADE</color>
     <color name="static_green_5">#0D01A016</color>
     <color name="static_green_50">#8001A016</color>
+    <color name="static_red">#FF0000</color>
+    <color name="static_white">#FFFFFF</color>
+    <color name="static_shadow">#14C53333</color>
 </resources>

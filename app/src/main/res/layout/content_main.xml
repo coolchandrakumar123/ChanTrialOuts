@@ -96,17 +96,27 @@
                 app:layout_constraintStart_toEndOf="@+id/roundedImageView"
                 app:srcCompat="@android:drawable/ic_input_add" />
 
-            <!--<com.chan.chandummy.customview.GradientImageView
+            <android.support.constraint.ConstraintLayout
                 android:id="@+id/gradientImageView"
-                android:layout_width="44dp"
-                android:layout_height="44dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_marginStart="@dimen/dimen_8"
                 android:layout_marginTop="@dimen/dimen_8"
-                app:layout_constraintTop_toBottomOf="@+id/roundedImageView"
+                app:layout_constraintWidth_percent=".3125"
+                app:layout_constraintDimensionRatio="1:1"
+                android:padding="@dimen/dimen_8"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:src="@android:drawable/ic_input_add"
-                app:srcCompat="@android:drawable/ic_input_add"
-                android:padding="4dp"/>-->
+                app:layout_constraintEnd_toEndOf="parent">
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/circle_bg"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+            </android.support.constraint.ConstraintLayout>
         </android.support.constraint.ConstraintLayout>
     </android.support.v4.widget.NestedScrollView>
 

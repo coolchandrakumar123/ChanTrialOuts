@@ -10,4 +10,6 @@
     <string name="dummy_text_hint">THIS IS THE HINT</string>
 
     <string name="mask_view_label">MASK VIEW LABEL</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

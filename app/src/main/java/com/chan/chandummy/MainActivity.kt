@@ -4,7 +4,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.os.Looper
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.text.SpannableString
@@ -16,8 +15,9 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
+import com.chan.chandummy.bottomsheet.BottomMenuFragment
 import com.chan.chandummy.customview.CustomBottomSheetDialog
+import com.chan.chandummy.util.getBlurCircle
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
@@ -42,8 +42,8 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener { view ->
             //openTicketInRadar(648638721, 196608000014373120)
             //thirdName.text = "33333 This is extra statement to identify the ellipsize"
-            startActivity(Intent(this, RecyclerViewActivity::class.java))
-
+            //startActivity(Intent(this, RecyclerViewActivity::class.java))
+            showBottomMenu()
         }
 
         button1.setOnClickListener {
@@ -58,12 +58,20 @@ class MainActivity : AppCompatActivity() {
         textImageView.setText("AB")
         setValuesInitially()
         progressBar.percentage = 65f
+        gradientImageView.background = getBlurCircle(this, intArrayOf(R.color.static_red, R.color.static_white))
     }
 
     private fun showDialog() {
         val dialog = CustomBottomSheetDialog()
         dialog.isCancelable = false
         dialog.show(supportFragmentManager)
+    }
+
+    private fun showBottomMenu() {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_wrapper, BottomMenuFragment())
+            commit()
+        }
     }
 
     private fun stopThread() {
